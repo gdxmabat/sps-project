@@ -24,14 +24,5 @@ public enum GameResult {
 		return resultValue;
 	}
 	
-	public GameResult getResult(int result) {
-		switch (result) {
-			case 0: return TIE; 
-			case 1: return WIN;
-			case 2: return LOOSE;
-			default: return NO_VALID;
-		}
-	}
-	
 	
 }

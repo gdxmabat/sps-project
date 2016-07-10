@@ -81,6 +81,17 @@ public class Player implements Comparable<Player>{
 		this.choise = choise;
 	}
 
+	/**
+	 * Validate if player is ready to play
+	 * @return boolean true if it ok. False if not ready. 
+	 */
+	public boolean validatePlayerStatus() {
+		if (null == this.playerName || "".equals(this.playerName)) return false;
+		else {
+			return (null == this.getChoise())?false:true;
+		}
+	}
+	
 
 	/** 
 	 * Compare choise of this player with other player. 
@@ -89,11 +100,11 @@ public class Player implements Comparable<Player>{
 	 */
 	public int compareTo(Player otherPlayer) {
 		try {
-			if (null == this.getChoise()) {
-				throw new SPSException("Not Valid choise for this player");
+			if (!validatePlayerStatus()) {
+				throw new SPSException("Not Valid status for this player");
 			} else {
-				if (null == otherPlayer || null == otherPlayer.getChoise()) {
-					throw new SPSException("Not Valid choise for opponent ");
+				if (null == otherPlayer || !otherPlayer.validatePlayerStatus()) {
+					throw new SPSException("Not Valid status for opponent ");
 				} else {
 					LOGGER.debug("the result of evaluate "+this.getChoise()+" and "+otherPlayer.getChoise()+" is "+(GameConstants.MAX_CHOISE_POSIBILITIES + this.getChoise().getChoiseValue() - otherPlayer.getChoise().getChoiseValue() ) % GameConstants.MAX_CHOISE_POSIBILITIES);
 					return  (GameConstants.MAX_CHOISE_POSIBILITIES + this.getChoise().getChoiseValue() - otherPlayer.getChoise().getChoiseValue() ) % GameConstants.MAX_CHOISE_POSIBILITIES;

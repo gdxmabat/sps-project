@@ -15,13 +15,13 @@ public class SPSGame {
 	
 	public static void main(String[] args) {
 		int[] totalResult = new int[4];
-		Player player1 = new Player("PlayerRock",GameChoise.ROCK);
-		Player player2 = new Player("Player2");
+		Player player1 = new Player(GameConstants.PLAYER_ONE_NAME,GameChoise.ROCK);
+		Player player2 = new Player(GameConstants.PLAYER_TWO_NAME);
 		
 		
 		for (int i=0;i<GameConstants.TOTAL_ROUNDS;i++) {
 			player2.setChoise(GameRandom.randomChoise());
-			LOGGER.debug("Player2 is thinking about ..."+player2.getChoise());
+			LOGGER.debug(player2.getPlayerName() + " will choise ..."+player2.getChoise());
 			totalResult[playOneGame(player1,player2)]++;
 		}
 		

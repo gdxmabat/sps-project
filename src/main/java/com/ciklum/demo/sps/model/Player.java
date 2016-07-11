@@ -119,6 +119,10 @@ public class Player implements Comparable<Player>{
 		}
 	}
 	
+	@Override
+	public String toString(){
+		return "Player's name: "+this.playerName+" - choise: "+this.choise;
+	}
 	
 	
 	

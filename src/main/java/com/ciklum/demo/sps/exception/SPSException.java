@@ -1,8 +1,11 @@
 package com.ciklum.demo.sps.exception;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SPSException.
+ * 
+ * Custom exception for this DEMO. 
+ * It could be more construct method if we need it
+ * 
  */
 public class SPSException extends Exception
 {

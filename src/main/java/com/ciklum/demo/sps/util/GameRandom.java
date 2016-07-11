@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GameRandom.
  */
@@ -21,12 +20,12 @@ public class GameRandom {
 	private static final Random RANDOM = new Random();
 
 	/**
-	 * Random letter.
-	 *
+	 * Random choise.
+	 * We dont want use a no_valid choise (enum #4). For it, we use just 3 values
 	 * @return the game choise
 	 */
 	public static GameChoise randomChoise()  {
-		  return VALUES.get(RANDOM.nextInt(SIZE));
+		  return VALUES.get(RANDOM.nextInt(SIZE-1)%3);
 	}
 	
 	
